@@ -1,0 +1,146 @@
+/* src/components/Process/Process.css */
+
+.process__header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.process__subtitle {
+  color: var(--clr-text-muted);
+  font-size: 0.95rem;
+}
+
+/* ---- Steps ---- */
+.process__steps {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  max-width: 780px;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* ---- Step ---- */
+.process-step {
+  display: grid;
+  grid-template-columns: 56px 64px 1fr;
+  align-items: flex-start;
+  gap: 24px;
+  padding-bottom: 40px;
+  position: relative;
+}
+
+.process-step:last-child {
+  padding-bottom: 0;
+}
+
+/* Connector line */
+.process-step__connector {
+  position: absolute;
+  left: 84px;
+  top: 64px;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, rgba(34, 211, 238, 0.4), transparent);
+}
+
+.process-step--purple .process-step__connector {
+  background: linear-gradient(to bottom, rgba(139, 92, 246, 0.4), transparent);
+}
+
+/* Step number */
+.process-step__number {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  font-weight: 900;
+  line-height: 1;
+  margin-top: 8px;
+  background: var(--grad-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  opacity: 0.3;
+  transition: opacity var(--transition-mid);
+}
+
+.process-step:hover .process-step__number {
+  opacity: 0.8;
+}
+
+/* Icon */
+.process-step__icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  flex-shrink: 0;
+  transition: all var(--transition-mid);
+  margin-top: 4px;
+}
+
+.process-step--cyan .process-step__icon {
+  background: var(--clr-cyan-dim);
+  border: 1px solid rgba(34, 211, 238, 0.3);
+  color: var(--clr-cyan);
+}
+
+.process-step--purple .process-step__icon {
+  background: var(--clr-purple-dim);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  color: var(--clr-purple);
+}
+
+.process-step:hover .process-step__icon {
+  transform: scale(1.1);
+}
+
+.process-step--cyan:hover .process-step__icon {
+  box-shadow: var(--glow-cyan);
+}
+
+.process-step--purple:hover .process-step__icon {
+  box-shadow: var(--glow-purple);
+}
+
+/* Content */
+.process-step__content {
+  padding-top: 6px;
+}
+
+.process-step__title {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--clr-text-heading);
+  margin-bottom: 8px;
+}
+
+.process-step__desc {
+  font-size: 0.92rem;
+  color: var(--clr-text-muted);
+  line-height: 1.75;
+  max-width: 560px;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 600px) {
+  .process-step {
+    grid-template-columns: 40px 50px 1fr;
+    gap: 16px;
+  }
+  .process-step__connector { left: 66px; }
+  .process-step__number { font-size: 1.8rem; }
+  .process-step__icon { width: 46px; height: 46px; font-size: 1.1rem; }
+}
+
+@media (max-width: 480px) {
+  .process-step {
+    grid-template-columns: 36px 1fr;
+    grid-template-rows: auto auto;
+  }
+  .process-step__number { display: none; }
+  .process-step__connector { left: 18px; top: 58px; }
+}
